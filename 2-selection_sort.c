@@ -14,8 +14,8 @@
 
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j;
-	int temp, currentMinimum;
+	size_t i, j, currentMinimum;
+	int temp;
 
 	for (i = 0; i < size; i++)
 	{
@@ -27,10 +27,13 @@ void selection_sort(int *array, size_t size)
 				currentMinimum = j;
 			}
 		}
-		temp = array[i];
-		array[i] = array[currentMinimum];
-		array[currentMinimum] = temp;
-		print_array(array, size);
+		if (currentMinimum != i)
+		{
+			temp = array[i];
+			array[i] = array[currentMinimum];
+			array[currentMinimum] = temp;
+			print_array(array, size);
+		}
 	}
 }
 
